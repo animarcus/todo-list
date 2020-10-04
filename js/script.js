@@ -36,7 +36,7 @@ let view = {
     // console.log(todoList);
     if (todoList.length === 0) {
       console.log("empty");
-      container.innerHTML = "No todos currently";
+      container.innerHTML = "";
     } else {
       todoList.forEach((current, index) => {
         let gridItem = document.createElement("div");
@@ -53,11 +53,6 @@ let view = {
         textItem.className = "item";
         textItem.innerHTML = current.text;
         textItem.contentEditable = true;
-        textItem.style.width = "100%";
-        textItem.style.height = "100%";
-        textItem.style.textJustify = "center";
-        textItem.style.textAlign = "center";
-
 
         let deleteItem = document.createElement("div");
         deleteItem.className = "delete";
@@ -107,7 +102,6 @@ container.addEventListener("click", e => {
 
 document.addEventListener("keyup", key => {
   if (key.target.className === "item") {
-    // console.log(key.target);
     let value = key.target.innerHTML;
     let index = key.target.parentNode.id;
     console.log(value, index);
